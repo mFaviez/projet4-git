@@ -1,0 +1,49 @@
+/* CSS Document */
+
+body {
+	padding-top: 25px;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+header
+{
+	background-color: #658888;
+	color: #fff;
+}
+header a
+{
+	color: #fff;
+}
+header a:hover
+{
+	text-decoration: none;
+	color: #e3b412;
+}
+ul li {
+	list-style: none;	
+}
+#oneLevel li {
+	margin-top: 25px;
+}
+nav {
+	margin: 40px 0 40px 0;
+}
+.footer-copyright
+{
+	bottom: 0;
+	font-size: .8em;
+}
+.mentions
+{
+	margin: 25px 0 25px 0;
+}
+h1 {
+    font-size: 2em!important;
+}
+h2
+{
+	text-align: center;
+	padding: 25px 0 25px 0;
+}
