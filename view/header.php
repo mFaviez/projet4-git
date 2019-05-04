@@ -31,13 +31,18 @@
 							<li><a href="adminPage.php" title="Retourner à l'accueil"><i class="fa fa-home"></i> Administrateur</a></li>
 							
 						<!-- BOUTON CONNEXION ET INSCRIPTION -->
+							<?php
+									if (!isset($_SESSION['pseudo'])){
+								?> 
 							<li>
 								<a href="connexion.php"><i class="fas fa-user"></i> Connexion</a>
 							</li>
 							<li>
 								<a href="inscription.php"><i class="fas fa-check"></i> Créer un compte</a>								
 							</li>
-							
+							<?php
+									}
+								?>
 						</ul>
 					</nav>
 				<!-- MENTIONS -->
