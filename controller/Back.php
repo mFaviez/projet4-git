@@ -32,3 +32,35 @@ function adminConnexion($AdminPseudo,$AdminPwd){
 	$infoAdmin= $adminlog->AdminCheckInfo($AdminPseudo,$AdminPwd);
 	require("./view/pages/adminPage.php");
 }
+/*--------------------------------MESSAGE CONNECTER----------------------------------------*/
+function msgPWD($message){
+	$message;
+
+	require('./view/pages/connexion.php');
+	// require('./view/pages/inscription.php');
+	
+}
+function msgMail($message){
+	$message;
+
+	require('./view/pages/connexion.php');
+	
+}
+
+function infoIssues($infoIssues){
+	$infoIssues;
+	require('./view/pages/connexion.php');
+	
+}
+function noNickName($noNickName){
+
+	$noNickName;
+	require('./view/pages/connexion.php');
+	
+}
+function NoMatch($NoMatch){
+	$NoMatch;
+
+	require('./view/pages/connexion.php');
+	
+}

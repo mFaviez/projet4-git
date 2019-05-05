@@ -45,4 +45,16 @@
 						<input type="submit" id="valide" value="Inscription" class="btn btn-success" />
 						<a href="header.php" class="btn btn-danger">Annuler</a>
 					</form>
+		
+				<?php
+					if (isset($pseudoPresent)) {
+						echo "<p> Pseudo déjà utilisé, veuillez en séléctionner un autre.</p>";
+					}
+					if (isset($message)) {
+						echo "<p class='warning_Info'>" .$message ."</p>";
+					}
+					if(isset($infoIssues)){
+						echo "<p class='warning_Info'>" .$infoIssues."</p>";
+					}
+					?>
 		</section>

@@ -24,4 +24,12 @@
 				</div>
 				
 			</form>
+				<?php
+						if (isset($noNickName)) {
+							echo "<p>".$noNickName."</p>";
+						}
+						if(isset($NoMatch)){
+							echo "<p>".$NoMatch."</p>";
+						}
+						?>
 	</section>
