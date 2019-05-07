@@ -6,6 +6,12 @@ if (!(isset($_GET['action']) ) ) {
 		headBand();
 		getAllChaps();	
 }
+if (isset($_GET['action'])){
+
+	if($_GET['action']=='logOut'){//log ou session
+		session_destroy();
+		header("Location:index.php");
+	}
 
 
 /*--------------------------------Identification souscrire----------------------------------*/
@@ -72,3 +78,57 @@ if (!(isset($_GET['action']) ) ) {
 		}
 
 	}//FIN DE L ENRISGETREMENT
+	
+	
+	if($_GET['action']=='admin'){
+		if (isset($_SESSION["pseudo"])) {
+			if( ($_SESSION["id"])=="115"){
+				require("controller/Back.php");
+				headBand();
+				lastUpdate();
+			}/*End of id's check*/
+		}
+		
+	}//end of 'admin'
+	
+	if($_GET['action']=='adminOnly'){
+		if (!isset($AdminPseudo)&& !isset($AdminPwd)) {
+			$AdminPseudo=htmlspecialchars($_POST['IdAdmin']);
+			$AdminPwd=$_POST['PwdAdmin'];	
+				require("controller/Back.php");
+				headBand();
+				lastUpdate();
+				adminConnexion($AdminPseudo,$AdminPwd);
+		}else{
+			require("controller/Back.php");
+			headBand();
+			lastUpdate();
+			adminConnexion($AdminPseudo,$AdminPwd);
+			
+		}
+	}//END 'adminOnly'
+	
+	/*--------------------------------COMMENTAIRE----------------------------------------*/
+	if($_GET['action']=='ValiderComment'){
+		$idChap=$_GET['id'];
+		$idPseudo=$_SESSION['id'];
+		$textComment=$_POST['comment'];
+		 	headBand();
+			addComments($idPseudo,$textComment,$idChap);		
+	}
+
+
+
+	if($_GET['action']=='deleteComm'){
+		$id_comm=$_GET['id'];
+			require("controller/Back.php");
+			deletedComment($id_comm);
+	}
+
+	if($_GET['action']=='commentChecked'){
+		$id_comm=$_GET['id'];
+			require("controller/Back.php");
+			validationComment($id_comm);
+	}
+
+}

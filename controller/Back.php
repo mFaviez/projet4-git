@@ -64,3 +64,13 @@ function NoMatch($NoMatch){
 	require('./view/pages/connexion.php');
 	
 }
+/*--------------------------------ADMIN----------------------------------------*/
+function lastUpdate(){
+	$callChapters= new ChaptersManager();
+	$listChapters=$callChapters-> listChap();
+
+	$repotedComm= new CommentsManager();
+	$reportedComments= $repotedComm->getReportingComments();
+
+	require("./view/pages/adminPage.php");
+}

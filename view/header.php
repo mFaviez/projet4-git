@@ -25,11 +25,21 @@
 						<ul id="oneLevel">
 	
 						<!-- BOUTON ACCUEIL -->
-							<li><a href="" title="Retourner à l'accueil"><i class="fa fa-home"></i> Accueil</a></li>
-	
-						<!-- BOUTON ADMINISTRATEUR -->
-							<li><a href="adminPage.php" title="Retourner à l'accueil"><i class="fa fa-home"></i> Administrateur</a></li>
-							
+							<li><a href="index.php" title="Retourner à l'accueil"><i class="fa fa-home"></i> Accueil</a></li>
+							<!-- BOUTON ADMINISTRATEUR -->
+								<?php
+									if(isset($_SESSION["pseudo"])){
+										if( ($_SESSION["id"])=="115"){
+											echo "<li><a href='./index.php?action=admin'><i class=\"fas fa-user-cog\"></i> Admin</a></li>";
+										}
+									}
+								?> 
+							<!-- BOUTON DECONNEXION -->
+								<?php
+									if (isset($_SESSION['pseudo'] ) ) {
+									echo "<li><a href='./index.php?action=logOut'><i class=\"fas fa-sign-out-alt\"></i> Déconnexion</a></li>";
+									}
+								?>
 						<!-- BOUTON CONNEXION ET INSCRIPTION -->
 							<?php
 									if (!isset($_SESSION['pseudo'])){
@@ -58,8 +68,7 @@
 						<p class="footer-copyright">©2019 Copyright: Projet 4 - Michaël Faviez </p>			
 								
 					</header>
-			<!-- CONTENU -->
-<section class="col-lg-6 offset-lg-1 text-center" id="contenu">
-							
-</body>					
-</html>
+<!-- CONTENU -->
+<section class="col-lg-9">
+	<div class="titre-img"><img src="contenu/images/titre.jpg"></div>		
+	<section class="col-lg-10 offset-lg-1 text-center" id="contenu">
