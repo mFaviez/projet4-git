@@ -2,6 +2,7 @@
 session_start();
 
 if (!(isset($_GET['action']) ) ) {
+	require ("controller/Front.php");
 	require("controller/Front.php");
 		headBand();
 		getAllChaps();	
@@ -16,12 +17,14 @@ if (isset($_GET['action'])){
 
 /*--------------------------------Identification souscrire----------------------------------*/
 	if($_GET['action']=='connexion'){
+		require ("controller/Front.php");
 	 	require ("controller/Back.php");
 	 		headBand();
 	 		formulaire();
 	}//Fin de $_GET['action']=='connexion'	
 	
 	if($_GET['action']=='inscription'){
+		require ("controller/Front.php");
 		require("controller/Back.php"); 
 			headBand();
 			forminscr();
@@ -40,6 +43,7 @@ if (isset($_GET['action'])){
 				if ( preg_match ("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail']) ) {
 					if ( isset($pseudo)&&($mdp==true)&&($mail== true) ) {
 						$pseudoPresent=0;
+						require ("controller/Front.php");
 							require ("controller/Back.php");
 							headBand();
 							subscribe($pseudo,$mdp,$mail,$pseudoPresent);
@@ -48,12 +52,14 @@ if (isset($_GET['action'])){
 					}
 				}else{
 				$message="Une erreur dans votre adresse mail s'est produite. Vérifiez vos informations";
+					require ("controller/Front.php");
 				require ("controller/Back.php");
 				headBand();
 				msgMail($message);
 				}
 			}else{
 				$message="Les 2 mots de passe ne correspondent pas";
+				require ("controller/Front.php");
 				require ("controller/Back.php");
 				headBand();
 				msgPWD($message);
@@ -71,6 +77,7 @@ if (isset($_GET['action'])){
 			$noNickName="Aucun pseudo reconnu";
 			$NoMatch="Pseudo ou mot de passe incorrect";
 				require ("controller/Back.php");	
+			require ("controller/Front.php");
 				headBand();
 				checkInfo($checkPseudo,$checkmdp);
 				noNickName($noNickName);
@@ -84,6 +91,7 @@ if (isset($_GET['action'])){
 		if (isset($_SESSION["pseudo"])) {
 			if( ($_SESSION["id"])=="115"){
 				require("controller/Back.php");
+				require ("controller/Front.php");
 				headBand();
 				lastUpdate();
 			}/*End of id's check*/
@@ -96,11 +104,13 @@ if (isset($_GET['action'])){
 			$AdminPseudo=htmlspecialchars($_POST['IdAdmin']);
 			$AdminPwd=$_POST['PwdAdmin'];	
 				require("controller/Back.php");
+			require ("controller/Front.php");
 				headBand();
 				lastUpdate();
 				adminConnexion($AdminPseudo,$AdminPwd);
 		}else{
 			require("controller/Back.php");
+			require ("controller/Front.php");
 			headBand();
 			lastUpdate();
 			adminConnexion($AdminPseudo,$AdminPwd);
@@ -122,12 +132,14 @@ if (isset($_GET['action'])){
 	if($_GET['action']=='deleteComm'){
 		$id_comm=$_GET['id'];
 			require("controller/Back.php");
+		require ("controller/Front.php");
 			deletedComment($id_comm);
 	}
 
 	if($_GET['action']=='commentChecked'){
 		$id_comm=$_GET['id'];
 			require("controller/Back.php");
+		require ("controller/Front.php");
 			validationComment($id_comm);
 	}
 
