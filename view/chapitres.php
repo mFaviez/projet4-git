@@ -12,7 +12,7 @@
 						?>
 						<div class="ticket list-group col-lg-12">	
 
-							<a class="list-group-item list-group-item-action" href="">
+							<a class="list-group-item list-group-item-action" href="./index.php?action=selectionchapitre&amp;id=<?php echo $list['id']; ?>">
 								
 							<!-- Titre du chapitre -->	
 								<p class="titleTicket float-left"><i class="fas fa-book-open"></i> <?php echo htmlspecialchars($list['titre']) ?></p>

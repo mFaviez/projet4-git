@@ -1,15 +1,15 @@
 <?php
-
+require_once("./model/chaptersManager.php");
+require_once("./model/commentsManager.php");
 
 function  headBand(){
-	require ("./view/header.php");
+	require ("./view/portions/header.php");
 }
-
 /*------------------CHAPITRE-----------------------*/
 function getAllChaps(){
 	$callChapters= new ChaptersManager();
 	$listChapters=$callChapters-> listChap();
-	require("./view/chapitres.php");
+	require("./view/pages/chapitres.php");
 }
 
 function getOneChap(){
@@ -19,6 +19,16 @@ function getOneChap(){
 	$getallComms= new CommentsManager();
 	$commByChap=$getallComms->getComments();
 
-	require("./view/chapitre.php");
+	require("./view/pages/chapitre.php");
 }
 /*------------------FIN SECTION CHAPITRE-----------------------*/
+
+/*------------------COMMENTAIRE-----------------------*/
+function addComments($idPseudo,$textComment,$idChap){
+	$addComm= new CommentsManager();
+	$newComment=$addComm->addComment($idPseudo,$textComment,$idChap);
+
+	$getallComms= new CommentsManager();
+	$commByChap=$getallComms->getComments();
+	require('./view/pages/chapitre.php');
+}

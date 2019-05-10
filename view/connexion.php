@@ -1,4 +1,4 @@
-<h2>Connexion</h2>
+	<h2>Connexion</h2>
 	<section id="formConnectionRegistration">
 
 			<!--<div class="formulaires">-->
@@ -19,12 +19,11 @@
 				
 				<div>
 				<input type="submit" id="validation" value="Connexion" class="btn btn-success"/>
-				<p class="margintop15">Pas encore de compte&nbsp;?
-				<a href="inscription.php"> Inscrivez-vous ici&nbsp;!</a></p>	
+				<p class="margintop15">Pas encore de compte&nbsp;?<a href="./index.php?action=inscription"> Inscrivez-vous ici&nbsp;!</a></p>	
 				</div>
 				
 			</form>
-				<?php
+						<?php
 						if (isset($noNickName)) {
 							echo "<p>".$noNickName."</p>";
 						}
@@ -32,9 +31,11 @@
 							echo "<p>".$NoMatch."</p>";
 						}
 						?>
+			<!--</div>-->
+
 	</section>
 
-</section>
+	</section>
 	</section>
 	</div>	
 	</div>	

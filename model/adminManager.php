@@ -3,6 +3,23 @@ require_once("manager.php");
 
 class membersManager extends Manager
 {
+
+	public function checkPseudo($pseudo) {
+		$bdd=$this->dbConnect();
+		$req = $bdd->prepare('SELECT * FROM membres WHERE pseudo = :pseudo');
+		$req->execute(array(
+			'pseudo' => $pseudo
+		));
+
+		$count = $req->rowCount();
+
+		if($count >= 1) {
+			return true;
+		}else {
+			return false;
+		}
+
+	}
 	public function checkInfo($checkPseudo,$checkmdp){
 		$bdd=$this->dbConnect();
 		$req= $bdd->prepare('SELECT id,mdp FROM membres WHERE pseudo=:pseudo');
@@ -45,11 +62,11 @@ class membersManager extends Manager
 				
 		}//FIN DE LA VERIFICATION DES MEMBRES
 		else{//Si toutes les conditions sont vraies, OK POUR S ABONNER
-				var_dump($pseudo);
+				
 				$pass_hache = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
 				$user = $bdd->prepare('INSERT INTO membres(pseudo,mail,mdp) VALUES(:pseudo,:mail,:mdp )');
-				var_dump($pseudo);
+		
 				
 				$info=$user->execute(array(
 						'pseudo'=>$pseudo,

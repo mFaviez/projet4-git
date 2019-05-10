@@ -9,7 +9,7 @@
 			<!-- TITRE -->
 			<h1 class="titleTicket"><?php echo htmlspecialchars($chapitre['titre']);?></h1>		
 			<!-- CHAPITRE -->
-			<p><?php echo($chapitre[''])?></p>
+			<p><?php echo($chapitre['textchap'])?></p>
 			<?php
 			}
 				$pickOneChap->closeCursor();
@@ -71,7 +71,7 @@
 				<?php
 					if(isset($_SESSION['pseudo'])){		
 				?>
-				<form id="getNewComment" action="" method="post">
+				<form id="getNewComment" action="./index.php?action=ValiderComment&amp;id=<?php echo $_GET['id']; ?>" method="post">
 					<label>Pseudo : <?php echo htmlspecialchars($_SESSION['pseudo']);?></label> 
 					<br><textarea name="comment" id="comment"></textarea>
 					<br><input type="submit" id="save" value="Envoyer" class="btn btn-success" />
