@@ -1,11 +1,16 @@
+@charset "utf-8";
 /* CSS Document */
-
+/* GENRALITES */
 body {
 	padding-top: 25px;
 }
 img {
 	max-width: 100%;
 	height: auto;
+}
+a
+{
+	text-decoration: none;
 }
 header
 {
@@ -21,6 +26,11 @@ header a:hover
 	text-decoration: none;
 	color: #e3b412;
 }
+ul
+{
+	margin-top: 50px;
+	margin-bottom: 55px;
+}
 ul li {
 	list-style: none;	
 }
@@ -29,6 +39,10 @@ ul li {
 }
 nav {
 	margin: 40px 0 40px 0;
+}
+.bonjour {
+	font-size: 1.2em;
+	font-weight: bold;
 }
 .footer-copyright
 {
@@ -46,4 +60,93 @@ h2
 {
 	text-align: center;
 	padding: 25px 0 25px 0;
+}
+/* FRONT-END */
+.chapitre
+{
+	max-height: 600px;
+	overflow-y: scroll;
+}
+.chapitre a p {
+	margin: 0;
+}
+.fa-book-open
+{
+	color: #658888;
+}
+.list-group-item-action:focus, .list-group-item-action:hover {
+    background-color: #e7e8eb!important;
+}
+.margintop15 {
+	margin-top: 15px;
+}
+/* BACK-END */
+#listTickets {
+	border: 1px solid #000;
+	border-radius: .25rem;
+	padding: 20px;
+	overflow-y: scroll;
+	max-height: 600px;	
+}
+#tableTickets {
+	padding: 0!important;
+}
+.titleTicket {
+	color: #658888;
+	font-size: 1.3em;
+}
+.admintitleTicket {
+	color: #658888;
+	font-size: 1.5em;	
+}
+.btn-success a:hover, .btn-secondary a, .btn-secondary a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+#displayComments, #registrationPostComment, #formConnectionRegistration, .blocadmin {
+	border: 1px solid rgba(0,0,0,.3);
+	border-radius: .25rem;
+	padding: 15px;
+}
+#registrationPostComment {
+	margin: 20px 0 50px 0;
+}
+.titrecomm {
+	margin: 0 0 15px 0;
+	text-align: left;
+	padding: 0;
+}
+#listComments {
+	border-bottom: 1px solid rgba(0,0,0,.3);
+	padding-bottom: 5px;
+	margin-bottom: 5px;	
+}
+#listComments:last-child {
+	border-bottom: none;
+}
+#listComments a {
+	font-size: .8em;
+}
+#comment {
+	width: 100%;
+}
+#textPost {
+	font-size: .8em;
+	font-style: italic;
+}
+.btn-signaler {
+	width: 71px;
+	margin-top: 3px;
+}
+#save, #send, #edit {
+	margin-top: 3px;
+}
+.blocadmin {
+	margin-bottom: 5px;
+}
+.nomarginbottom {
+	margin-bottom: 0;	
+}
+.underline {
+	text-decoration: underline;
 }
