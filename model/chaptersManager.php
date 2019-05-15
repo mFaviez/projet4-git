@@ -5,7 +5,7 @@ class ChaptersManager extends Manager
 {
 	public function chapterCall(){//Chapitre sur la première page.
 		$bdd=$this->dbConnect();
-		$chapters= $bdd->query('SELECT id,titre,textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres ORDER BY date_edition  DESC LIMIT 0,3');	
+		$chapters= $bdd->query('SELECT id,titre,textchap,date_format(date_edition,"%d.%m.%y")as date_fr, date_edition FROM chapitres ORDER BY date_edition  DESC LIMIT 0,3');	
 		return $chapters;
 	}
 
@@ -20,13 +20,13 @@ class ChaptersManager extends Manager
 	}
 	public function listChap(){	//Cette fonction appellera tout le chapitre, et seulement les 250 premiers caractères.
 		$bdd=$this->dbConnect();
-		$allchap= $bdd->query('SELECT id,titre,SUBSTR(textchap, 1, 250)as textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres  ');//Selection of the first 100 characters 
+		$allchap= $bdd->query('SELECT id,titre,SUBSTR(textchap, 1, 250)as textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres ORDER BY date_edition  DESC ');//Selection of the first 100 characters 
 		return $allchap;
 	}
 
 	public function showAllChap(){
 		$bdd=$this->dbConnect();
-		$allchapters= $bdd->query('SELECT id,titre FROM chapitres ORDER BY DESC date_edition ');
+		$allchapters= $bdd->query('SELECT id,titre FROM chapitres ORDER BY date_edition DESC ');
 		return $allchapters;
 	}
 	public function postChapter($titleChap,$textChap){//Cette fonction va ajouter un nouveau chapitre

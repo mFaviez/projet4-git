@@ -8,6 +8,7 @@ class Manager{
 		}
 		catch (Exception $e){
 			die('Erreur: ' . $e->getmsg());
+			
 		}
 	}
 }
